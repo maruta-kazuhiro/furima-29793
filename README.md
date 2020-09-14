@@ -27,7 +27,6 @@
 | introduction     | text       | null:false                       |
 | user             | references | null:false, foreign_key:true     |
 | category         | integer    | null:false                       |
-| bland            | string     | null:false                       |
 | condition        | integer    | null:false                       |
 | shipping_fee     | integer    | null:false                       |
 | shipping_from    | integer    | null:false                       |
@@ -35,8 +34,8 @@
 
 ### Association
 
-- belong_to : user
-- has_one : purchases
+- belongs_to : user
+- has_one : purchase
 
 ## purchases テーブル
 
@@ -47,8 +46,8 @@
 
 ### Association
 
-- belong_to : user
-- belong_to : item
+- belongs_to : user
+- belongs_to : item
 - has_one : destination
 
 ## destination テーブル
@@ -61,7 +60,7 @@
 | address          | string     | null:false                       |
 | building         | string     |                                  |
 | telephone_number | string     | null:false                       |
-| purchases        | references | null:false, foreign_key:true     |
+| purchase         | references | null:false, foreign_key:true     |
 
 ### Association
 
