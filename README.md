@@ -42,7 +42,7 @@
 | Column           | Type       | Options                          |
 | ---------------- | ---------- | -------------------------------- |
 | user             | references | null:false, foreign_key:true     |
-| items            | references | null:false, foreign_key:true     |
+| item             | references | null:false, foreign_key:true     |
 
 ### Association
 
@@ -64,4 +64,4 @@
 
 ### Association
 
-- has_many : purchases
+- belongs_to : purchase
