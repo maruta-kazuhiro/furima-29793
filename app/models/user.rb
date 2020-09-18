@@ -6,13 +6,13 @@ class User < ApplicationRecord
 
   with_options presence: true do
   validates :nickname
-  validates :email, uniqueness: true,  format: { with: /\A\S+@\S+\.\S+\z/, message: "is valid. Include @." }
   validates :family_name,  format: { with: /\A[ぁ-んァ-ン一-龥]/, message: "is invalid. Input full-width characters."}
   validates :first_name, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: "is invalid. Input full-width characters."}
   validates :family_name_kana, format: { with: /\A[ァ-ヶー－]+\z/, message: "is invalid. Input full-width katakana characters."}
   validates :first_name_kana , format: { with: /\A[ァ-ヶー－]+\z/, message: "is invalid. Input full-width katakana characters."}
   validates :birthday
-  validates :encrypted_password, length: { minimum: 6 }, format: { with: /\A[a-zA-Z0-9]+\z/,  message: "is invalid. Minimum 6."}
   end
+  validates :email, uniqueness: true,  format: { with: /\A\S+@\S+\.\S+\z/, message: "is invalid. Include @." }
+  validates :password, length: { minimum: 6 }, format: { with: /\A[a-z0-9]+\z/,  message: "is invalid. Minimum 6."}
   
 end
