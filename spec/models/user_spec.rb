@@ -60,13 +60,13 @@ describe User do
         @user.password = "aaaaaaa"
         @user.password_confirmation = "aaaaaaa"
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password is invalid. Minimum 6.")
+        expect(@user.errors.full_messages).to include("Password is invalid. Use half-width alphanumeric both.")
       end
       it 'パスワードが数字のみだとユーザー登録できない' do
         @user.password = "1111111"
         @user.password_confirmation = "1111111"
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password is invalid. Minimum 6.")
+        expect(@user.errors.full_messages).to include("Password is invalid. Use half-width alphanumeric both.")
       end
       it '生年月日の情報が空だとユーザー登録できない' do
         @user.birthday = ""
