@@ -12,7 +12,7 @@ class User < ApplicationRecord
   validates :first_name_kana , format: { with: /\A[ァ-ヶー－]+\z/, message: "is invalid. Input full-width katakana characters."}
   validates :birthday
   end
-  validates :email, uniqueness: true,  format: { with: /\A\S+@\S+\.\S+\z/, message: "is invalid. Include @." }
+  validates :email, uniqueness: { case_sensitive: true },  format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/, message: "is invalid. Include @." }
   validates :password, length: { minimum: 6 }, format: { with: /\A[a-z0-9]+\z/,  message: "is invalid. Minimum 6."}
   
 end
