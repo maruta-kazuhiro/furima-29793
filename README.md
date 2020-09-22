@@ -30,7 +30,7 @@
 | condition_id        | integer    | null:false                       |
 | shipping_fee_id     | integer    | null:false                       |
 | shipping_from_id    | integer    | null:false                       |
-| date_ of_shipment_id| integer    | null:false                       |
+| date_of_shipment_id | integer    | null:false                       |
 
 ### Association
 
