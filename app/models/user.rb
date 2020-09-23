@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   with_options presence: true do
-    VALID_KANJI = /\A[ぁ-んァ-ン一-龥]/
-    VALID_KATAKANA = /\A[ァ-ヶー－]+\z/
+    VALID_KANJI = /\A[ぁ-んァ-ン一-龥]/.freeze
+    VALID_KATAKANA = /\A[ァ-ヶー－]+\z/.freeze
     validates :nickname
     validates :family_name, format: { with: VALID_KANJI, message: 'is invalid. Input full-width characters.' }
     validates :first_name, format: { with: VALID_KANJI, message: 'is invalid. Input full-width characters.' }
