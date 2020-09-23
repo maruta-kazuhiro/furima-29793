@@ -11,7 +11,7 @@ class Item < ApplicationRecord
   with_options presence: true do
   validates :image
   validates :name, length: { maximum: 40, message:"is invalid.Maximum 40" }
-  validates :price, format: { with: /\A[0-9]+\z/, message:"is invalid.Please type using half-width characters" }, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message:"is invalid.Price is ¥300~¥9,999,999"} 
+  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message:"is invalid. Please type using half-width characters. Price is ¥300~¥9,999,999"} 
   validates :introduction, length: { maximum: 1000, message:"is invalid.Maximum 1000" }
   validates :category_id, numericality: { other_than: 1, message:"is invalid. You must select"} 
   validates :condition_id, numericality: { other_than: 1, message:"is invalid. You must select"} 
