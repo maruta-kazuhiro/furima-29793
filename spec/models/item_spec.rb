@@ -27,27 +27,27 @@ describe Item do
           expect(@item.errors.full_messages).to include("Introduction can't be blank")
         end
         it 'カテゴリについての情報を選択していなければ出品できない' do
-          @item.category_id = '1'
+          @item.category_id = 1
           @item.valid?
           expect(@item.errors.full_messages).to include('Category is invalid. You must select')
         end
         it '商品の状態についての情報を選択していなければ出品できない' do
-          @item.condition_id = '1'
+          @item.condition_id = 1
           @item.valid?
           expect(@item.errors.full_messages).to include('Condition is invalid. You must select')
         end
         it '配送料の負担についての情報を選択していなければ出品できない' do
-          @item.shipping_fee_id = '1'
+          @item.shipping_fee_id = 1
           @item.valid?
           expect(@item.errors.full_messages).to include('Shipping fee is invalid. You must select')
         end
         it '配送元の地域についての情報を選択していなければ出品できない' do
-          @item.shipping_from_id = '1'
+          @item.shipping_from_id = 1
           @item.valid?
           expect(@item.errors.full_messages).to include('Shipping from is invalid. You must select')
         end
         it '発送までの日数についての情報を選択していなければ出品できない' do
-          @item.date_of_shipment_id = '1'
+          @item.date_of_shipment_id = 1
           @item.valid?
           expect(@item.errors.full_messages).to include('Date of shipment is invalid. You must select')
         end
@@ -57,12 +57,12 @@ describe Item do
           expect(@item.errors.full_messages).to include("Price can't be blank")
         end
         it '価格が300円以下では商品は出品できない' do
-          @item.price = '1'
+          @item.price = 1
           @item.valid?
           expect(@item.errors.full_messages).to include('Price is invalid. Please type using half-width characters. Price is ¥300~¥9,999,999')
         end
         it '価格が9999999円以上の商品は出品できない' do
-          @item.price = '99999999999999999999999999999999999999999999999999999'
+          @item.price = 99999999999999999999999999999999999999999999999999999
           @item.valid?
           expect(@item.errors.full_messages).to include('Price is invalid. Please type using half-width characters. Price is ¥300~¥9,999,999')
         end
