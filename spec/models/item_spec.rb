@@ -10,7 +10,7 @@ describe Item do
         expect(@item).to be_valid
       end
 
-      context '商品出品がうまくいかないとき' do
+    context '商品出品がうまくいかないとき' do
         it '画像が空では出品できない' do
           @item.image = nil
           @item.valid?
