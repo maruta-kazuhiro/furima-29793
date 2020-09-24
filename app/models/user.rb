@@ -11,7 +11,7 @@ class User < ApplicationRecord
     validates :family_name, format: { with: VALID_KANJI, message: 'is invalid. Input full-width characters.' }
     validates :first_name, format: { with: VALID_KANJI, message: 'is invalid. Input full-width characters.' }
     validates :family_name_kana, format: { with: VALID_KATAKANA, message: 'is invalid. Input full-width katakana characters.' }
-    validates :first_name_kana, format: { with: VALID_KATAKANA, message: 'is invalid. Input full-width katakana characters.'}
+    validates :first_name_kana, format: { with: VALID_KATAKANA, message: 'is invalid. Input full-width katakana characters.' }
     validates :birthday
   end
   validates :password, length: { minimum: 6, message: 'is invalid. Minimum 6.'}, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/, message: 'is invalid. Use half-width alphanumeric both.'}
