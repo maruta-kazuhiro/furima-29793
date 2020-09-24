@@ -209,12 +209,6 @@
         <%= link_to  new_item_path do %>
           <%= image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
         <% end %>
-  <% else %>
-    <div class='purchase-btn'>
-      <span class='purchase-btn-text'>出品する</span>
-        <%= link_to  new_user_session_path do %>
-          <%= image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
-        <% end %>
   <% end %>
 </div>
 <%= render "shared/footer" %>
