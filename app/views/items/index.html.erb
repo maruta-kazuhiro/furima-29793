@@ -128,8 +128,10 @@
 
       <% @items.each do |item| %>
         <li class='list'>
+         <%= link_to  item_path(item.id), method: :get do %>
           <div class='item-img-content'>
             <%= image_tag item.image, class: "item-img" if item.image.attached?%>
+          <% end %>
               <div class="items-contents">
                 <div class='item-info'>
                   <h3 class='item-name'>
@@ -199,14 +201,14 @@
     </ul>
   </div>
   <%# /商品一覧 %>
-
 </div>
+
   <% if user_signed_in? %>
-<div class='purchase-btn'>
-  <span class='purchase-btn-text'>出品する</span>
-  <%= link_to  new_item_path do %>
-    <%= image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
-  <% end %>
+    <div class='purchase-btn'>
+      <span class='purchase-btn-text'>出品する</span>
+        <%= link_to  new_item_path do %>
+          <%= image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
+        <% end %>
   <% end %>
 </div>
 <%= render "shared/footer" %>
