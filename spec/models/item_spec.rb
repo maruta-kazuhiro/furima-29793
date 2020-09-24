@@ -10,7 +10,7 @@ describe Item do
         expect(@item).to be_valid
       end
 
-    context '商品出品がうまくいかないとき' do
+      context '商品出品がうまくいかないとき' do
         it '画像が空では出品できない' do
           @item.image = nil
           @item.valid?
@@ -62,7 +62,7 @@ describe Item do
           expect(@item.errors.full_messages).to include('Price is invalid. Please type using half-width characters. Price is ¥300~¥9,999,999')
         end
         it '価格が9999999円以上の商品は出品できない' do
-          @item.price = 99999999999999999999999999999999999999999999999999999
+          @item.price = 99_999_999_999_999_999_999_999_999_999_999_999_999_999_999_999_999_999
           @item.valid?
           expect(@item.errors.full_messages).to include('Price is invalid. Please type using half-width characters. Price is ¥300~¥9,999,999')
         end
