@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show]
+  before_action :set_item, only: [:show, :edit]
 
   def index
     @items = Item.includes(:user).order('created_at DESC')
@@ -21,6 +21,18 @@ class ItemsController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to item_path
+    else
+      render :edit
+    end
+  end
+
   private
 
   def item_params
@@ -30,5 +42,4 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-
 end
