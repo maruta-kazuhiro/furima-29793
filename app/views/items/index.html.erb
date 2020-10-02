@@ -131,6 +131,11 @@
          <%= link_to  item_path(item.id), method: :get do %>
           <div class='item-img-content'>
             <%= image_tag item.image, class: "item-img" if item.image.attached?%>
+              <% if item.order != nil %>
+                <div class='sold-out'>
+                  <span>Sold Out!!</span>
+                </div>
+              <% end %>
           <% end %>
               <div class="items-contents">
                 <div class='item-info'>

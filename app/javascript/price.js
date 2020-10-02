@@ -1,4 +1,3 @@
-console.log("aaaa")
 function price_add_tax(){
   const price = document.getElementById('item-price');
   price.addEventListener("input",() => {
@@ -10,7 +9,7 @@ function price_add_tax(){
   });
   }
 
-window.addEventListener("turbolinks:load", function(){ 
+window.addEventListener("load", function(){ 
   var path = location.pathname;
   if (path == "/items/new")
   { price_add_tax() }
