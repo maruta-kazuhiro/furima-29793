@@ -6,7 +6,6 @@ function price_add_tax(){
   add_tax_price.innerHTML = Math.floor(input_price * 0.1 );
     const price_profit = document.getElementById("profit");
   price_profit.innerHTML = Math.ceil(input_price * 0.9 );
-  console.log("aaaa")
   });
   }
 

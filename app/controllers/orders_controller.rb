@@ -1,15 +1,12 @@
 class OrdersController < ApplicationController
   before_action :correct_user
+  before_action :login_check, only: [:index, :create]
 
   def index
-    @item = Item.find(params[:item_id])
-    login_check
     @order = UserDestination.new
   end
 
   def create
-    @item = Item.find(params[:item_id])
-    login_check
     @order = UserDestination.new(order_params)
     if @order.valid?
       pay_item
@@ -36,6 +33,7 @@ class OrdersController < ApplicationController
   end
 
   def login_check
+    @item = Item.find(params[:item_id])
     redirect_to root_path if user_signed_in? && current_user.id == @item.user_id
   end
 

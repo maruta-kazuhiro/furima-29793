@@ -7,7 +7,7 @@ class UserDestination
     validates :shipping_from_id, numericality: { other_than: 1, message: 'is invalid. You must select' }
     validates :municipalities
     validates :address
-    validates :telephone_number, length: { maximum: 11, message: 'is invalid.Maximum 11 and no "-".' }
+    validates :telephone_number, length: { maximum: 11, message: 'is invalid.Maximum 11 and no hyphen' },  numericality: { only_integer: true }
     validates :token
   end
 
