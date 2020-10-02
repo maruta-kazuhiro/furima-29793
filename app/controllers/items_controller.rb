@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :login_check, only: [:new, :create, :edit, :update, :destroy]
+  before_action :item_check, only: [:show, :edit, :update, :destroy]
 
   def index
     @items = Item.includes(:user).order('created_at DESC')
@@ -42,5 +44,16 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def login_check
+    unless user_signed_in?
+      flash[:alert] = 'ログインしてください'
+      redirect_to root_path
+    end
+  end
+
+  def item_check
+    redirect_to root_path unless @item.order.nil?
   end
 end

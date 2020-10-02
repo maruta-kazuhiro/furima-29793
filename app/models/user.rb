@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :items
+  has_many :orders
+
   with_options presence: true do
     VALID_KANJI = /\A[ぁ-んァ-ン一-龥]/.freeze
     VALID_KATAKANA = /\A[ァ-ヶー－]+\z/.freeze
@@ -14,5 +17,5 @@ class User < ApplicationRecord
     validates :first_name_kana, format: { with: VALID_KATAKANA, message: 'is invalid. Input full-width katakana characters.' }
     validates :birthday
   end
-  validates :password, length: { minimum: 6, message: 'is invalid. Minimum 6.' }, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/, message: 'is invalid. Use half-width alphanumeric both.'}
+  validates :password, length: { minimum: 6, message: 'is invalid. Minimum 6.' }, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/, message: 'is invalid. Use half-width alphanumeric both.' }
 end
