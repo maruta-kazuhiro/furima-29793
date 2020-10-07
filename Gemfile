@@ -35,6 +35,11 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   # gem 'sqlite3', '~> 1.3.6'
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
 end
 
 group :development do
