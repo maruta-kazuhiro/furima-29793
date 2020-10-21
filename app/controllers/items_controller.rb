@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :login_check, only: [:new, :create, :edit, :update, :destroy]
   before_action :item_check, only: [:show, :edit, :update, :destroy]
+  before_action :search_item, only: [:index, :search]
 
   def index
     @items = Item.includes(:user).order('created_at DESC')
@@ -36,6 +37,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  def search
+    @results = @p.result.includes(:item)
+  end
+
   private
 
   def item_params
@@ -56,4 +61,8 @@ class ItemsController < ApplicationController
   def item_check
     redirect_to root_path unless @item.order.nil?
   end
+end
+
+def search_item
+  @p = Item.ransack(params[:q]) 
 end
